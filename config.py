@@ -6,13 +6,13 @@ load_dotenv()
 class Config:
 
     # Secret key untuk session Flask
-    SECRET_KEY = os.environ.get("SECRET_KEY", "posyandu_anggrek14_secret")
+    SECRET_KEY = os.environ.get("SECRET_KEY", "logistik-barang")
 
     # Konfigurasi Database MySQL
     DB_HOST = os.environ.get("DB_HOST", "sgp.domcloud.co")
-    DB_USER = os.environ.get("DB_USER", "laporan")
+    DB_USER = os.environ.get("DB_USER", "logistik-barang")
     DB_PASSWORD = os.environ.get("DB_PASSWORD", "5UXsb3Sg99Iqx)M2((")
-    DB_NAME = os.environ.get("DB_NAME", "laporan_db")
+    DB_NAME = os.environ.get("DB_NAME", "logistik_barang_db")
 
     @staticmethod
     def get_db_config():

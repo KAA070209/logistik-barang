@@ -1,14 +1,21 @@
 from flask import Flask, render_template, request, redirect, session, flash, url_for
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
-
+import os
 
 app = Flask(__name__)
-app.secret_key = Config.SECRET_KEY
+
+# ================= SECRET KEY =================
+app.secret_key = os.getenv("SECRET_KEY", "logistik-barang")
 
 # ================= KONEKSI DATABASE =================
-def get_db_connection():
-    return mysql.connector.connect(**Config.get_db_config())
+def get_db_connection_azka():
+    return mysql.connector.connect(
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME")
+    )
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/login_azka', methods=['GET', 'POST'])
