@@ -348,6 +348,7 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
+<<<<<<< HEAD
 
             body {
                 padding-bottom: 80px;
@@ -569,6 +570,36 @@
     }
 }
 
+=======
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 20px 0;
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .topbar {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .card-metric {
+                height: auto;
+                padding: 24px;
+            }
+
+            .row .col-md-3 {
+                margin-bottom: 16px;
+            }
+        }
+        /* TABLE CARD */
+>>>>>>> f9990dbffceb33899c5493f648060005930dae39
         .table-card {
             background: var(--bg-card);
             padding: 32px;
@@ -648,11 +679,18 @@
 </head>
 <body>
     <div class="sidebar">
+<<<<<<< HEAD
         <h4 class="text-center mb-4">🚚 Kurir</h4>
 
         <a href="/kurir_dashboard_azka"><i class="bi bi-speedometer2"></i> Dashboard</a>
         <a href="/kurir_pickup_list_azka"><i class="bi bi-box-arrow-in-down"></i> Pickup list</a>
         <a href="/kurir_riwayat_azka" class="active"><i class="bi bi-clock-history"></i> Riwayat Pengiriman</a>
+=======
+        <h4>🚚 Kurir</h4>
+        <a href="/kurir_dashboard_azka"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a href="/kurir_pickup_list_azka"><i class="bi bi-box-arrow-in-down"></i> Pickup List</a>
+        <a class="active" href="/kurir_riwayat_azka"><i class="bi bi-clock-history"></i> Riwayat</a>
+>>>>>>> f9990dbffceb33899c5493f648060005930dae39
     </div>
     
     <div class="content">
@@ -662,6 +700,7 @@
                 <h4>Riwayat Pengiriman</h4>
                 <p>Semua aktivitas pengiriman kurir</p>
             </div>
+<<<<<<< HEAD
 
             <div class="dropdown">
                 <button class="btn d-flex align-items-center gap-3" style="background: none; border: none;"
@@ -713,6 +752,16 @@
                 <div class="d-flex justify-content-between mb-3">
                     <h5 class="mb-3">📜 Riwayat Lengkap</h5>
 
+=======
+        </div>
+    
+        <div class="table-card">
+            
+                
+                <div class="d-flex justify-content-between mb-3">
+                    <h5 class="mb-3">📜 Riwayat Lengkap</h5>
+                
+>>>>>>> f9990dbffceb33899c5493f648060005930dae39
                     <form method="get" action="/kurir_riwayat_azka">
                         <select name="filter" class="form-select" onchange="this.form.submit()">
                             <option value="all" {% if filter_status=='all' %}selected{% endif %}>Semua Status</option>
@@ -722,8 +771,12 @@
                         </select>
                     </form>
                 </div>
+<<<<<<< HEAD
             <div class="table-responsive">
                 <table class="table table-hover align-middle">
+=======
+            <table class="table table-hover align-middle">
+>>>>>>> f9990dbffceb33899c5493f648060005930dae39
                 <thead>
                     <tr>
                         <th>Order</th>
@@ -801,6 +854,7 @@
         </div>
     
     </div>
+<<<<<<< HEAD
 
     <!-- BOTTOM NAV FOR MOBILE -->
     <div class="bottom-nav d-md-none">
@@ -822,6 +876,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+=======
+    
+    
+>>>>>>> f9990dbffceb33899c5493f648060005930dae39
 </body>
 </html>
 
