@@ -306,6 +306,32 @@ def admin_users_edit_azka(id_azka):
 
     flash("Data user berhasil diperbarui!", "success")
     return redirect(url_for('admin_users_azka'))
+@app.route('/admin_users_delete_azka/<int:id_azka>', methods=['POST'])
+def admin_users_delete_azka(id_azka):
+
+    if 'user_id_azka' not in session or session.get('role_id_azka') != 1:
+        flash("Akses ditolak!", "danger")
+        return redirect(url_for('login_azka'))
+
+    if session.get('user_id_azka') == id_azka:
+        flash("Anda tidak dapat menghapus akun sendiri!", "warning")
+        return redirect(url_for('admin_users_azka'))
+
+    conn = get_db_connection_azka()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "DELETE FROM tbl_users_azka WHERE id_azka = %s",
+        (id_azka,)
+    )
+
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+    flash("User berhasil dihapus!", "success")
+    return redirect(url_for('admin_users_azka'))
+
 @app.route('/admin_users_reset_password_azka/<int:id_azka>', methods=['POST'])
 def admin_users_reset_password_azka(id_azka):
     if 'user_id_azka' not in session or session.get('role_id_azka') != 1:

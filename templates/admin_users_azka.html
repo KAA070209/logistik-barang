@@ -804,7 +804,27 @@
                 </a>
 
         </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} d-flex align-items-center shadow-sm fade show mb-4"
+                    style="border-radius: 14px; padding:14px; font-size:15px; background:white;">
+                    
+                    {% if category == 'success' %}
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-2"></i>
+                    {% elif category == 'danger' %}
+                        <i class="bi bi-x-circle-fill text-danger fs-4 me-2"></i>
+                    {% elif category == 'warning' %}
+                        <i class="bi bi-exclamation-triangle-fill text-warning fs-4 me-2"></i>
+                    {% else %}
+                        <i class="bi bi-info-circle-fill text-primary fs-4 me-2"></i>
+                    {% endif %}
 
+                    <div>{{ message }}</div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
         <div class="table-responsive">
             <table class="table table-hover align-middle">
                 <thead class="table-light">
@@ -867,12 +887,18 @@
                             </a>
 
 
-                            <a href="/admin_users_delete_azka/{{ u.id_azka }}"
-                            class="btn btn-sm btn-danger"
-                            style="border-radius:10px"
-                            onclick="return confirm('Yakin hapus user ini?')">
+                         <form action="/admin_users_delete_azka/{{ u.id_azka }}"
+                            method="POST"
+                            style="display:inline;"
+                            onsubmit="return confirm('Yakin hapus user {{ u.username_azka }}?');">
+
+                            <button type="submit"
+                                    class="btn btn-sm btn-danger"
+                                    style="border-radius:10px">
                                 <i class="bi bi-trash"></i>
-                            </a>
+                            </button>
+                        </form>
+
                         </td>
 
                     </tr>
